@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -188,7 +187,7 @@ const InteractiveDemo = () => {
           setCurrentStep(nextStep);
           setSelectedOption(null);
         }
-      }, 3000); // Increased from 1000ms to 3000ms (3 seconds)
+      }, 3000);
     }
   };
 
@@ -204,7 +203,6 @@ const InteractiveDemo = () => {
   };
 
   const handleEndOptionClick = () => {
-    // Open detailed right based on the current end step
     if (currentStep.id === 'advice_questioning' || currentStep.id === 'advice_arrest') {
       setModalRightId('arrest-detention-rights');
       setModalCategoryId(undefined);
@@ -217,7 +215,6 @@ const InteractiveDemo = () => {
       setModalOpen(true);
       return;
     }
-    // Default to emergency-rights category
     setModalCategoryId('emergency-rights');
     setModalRightId(undefined);
     setModalOpen(true);
@@ -237,7 +234,6 @@ const InteractiveDemo = () => {
 
         <div className="max-w-4xl mx-auto">
           <Card className="p-8 card-shadow relative overflow-hidden">
-            {/* Background Icon */}
             <div className="absolute inset-0 flex items-center justify-center opacity-15">
               <Shield className="w-96 h-96 text-primary" />
             </div>
@@ -276,7 +272,7 @@ const InteractiveDemo = () => {
                         ? "outline" 
                         : "outline"
                   }
-                  className={`w-full justify-between p-6 h-auto text-left ${
+                  className={`w-full justify-between p-6 h-auto text-left whitespace-normal ${
                     currentStep.isEnd ? 'hover:bg-primary/10' : 'hover:bg-primary hover:text-white'
                   }`}
                   onClick={() => currentStep.isEnd ? handleEndOptionClick() : handleOptionSelect(option)}
@@ -352,7 +348,6 @@ const InteractiveDemo = () => {
             )}
           </Card>
 
-          {/* Rights Detail Modal */}
           <RightsDetailModal 
             open={modalOpen}
             onOpenChange={setModalOpen}
@@ -360,14 +355,12 @@ const InteractiveDemo = () => {
             rightId={modalRightId}
           />
 
-          {/* Emergency Contacts Modal */}
           <EmergencyContactsModal 
             open={emergencyModalOpen}
             onOpenChange={setEmergencyModalOpen}
             initialCategory={currentStep.id.includes('arrest') ? 'legal-aid' : 'emergency'}
           />
 
-          {/* App Tutorial Modal */}
           <AppTutorialModal 
             open={tutorialModalOpen}
             onOpenChange={setTutorialModalOpen}
