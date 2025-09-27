@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Search } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import LanguageSelector from "@/components/LanguageSelector";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -69,9 +69,9 @@ const Navigation = () => {
         {/* Mobile Navigation */}
         <div className={cn(
           "md:hidden overflow-hidden transition-all duration-300",
-          isOpen ? "max-h-96 pb-4" : "max-h-0"
+          isOpen ? "max-h-screen pb-4" : "max-h-0"
         )}>
-          <div className="pt-2 space-y-2">
+          <div className="flex flex-col pt-2 space-y-2">
             {navItems.map((item) => {
               if (item.action) {
                 return (
@@ -81,7 +81,7 @@ const Navigation = () => {
                       item.action();
                       setIsOpen(false);
                     }}
-                    className="px-4 py-3 rounded-lg text-foreground hover:bg-muted transition-smooth w-full text-left"
+                    className="px-4 py-3 rounded-lg text-foreground hover:bg-muted transition-smooth text-left w-full"
                   >
                     <span>{item.name}</span>
                   </button>
@@ -91,17 +91,22 @@ const Navigation = () => {
                 <a
                   key={item.name}
                   href={item.href}
-                  className="px-4 py-3 rounded-lg text-foreground hover:bg-muted transition-smooth"
                   onClick={() => setIsOpen(false)}
+                  className="px-4 py-3 rounded-lg text-foreground hover:bg-muted transition-smooth w-full text-left"
                 >
                   <span>{item.name}</span>
                 </a>
               );
             })}
+
+            {/* Language selector at bottom on mobile */}
+            <div className="px-4 py-2">
+              <LanguageSelector />
+            </div>
           </div>
         </div>
       </div>
-      
+
       {/* Emergency Contacts Modal */}
       <EmergencyContactsModal 
         open={contactModalOpen}
