@@ -72,7 +72,7 @@ const Footer = () => {
               <div className="w-10 h-10 bg-secondary rounded-xl flex items-center justify-center">
                 <span className="text-primary font-bold text-xl">Z</span>
               </div>
-              <span className="text-2xl font-bold">{getTranslation('app.title') || 'ZimRights Navigator'}</span>
+              <span className="text-2xl font-bold">{getTranslation('app.title') || 'ZimRights'}</span>
             </div>
             <p className="text-white/80 mb-6 leading-relaxed">
               {getTranslation('footer.tagline') || 'Empowering Zimbabweans through accessible legal knowledge. Know your rights, navigate justice with confidence.'}
