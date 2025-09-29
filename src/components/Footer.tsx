@@ -51,7 +51,7 @@ const Footer = () => {
     },
     { 
       name: "About Us", 
-      href: "mailto:info@zimrights.zw?subject=About ZimRights Navigator" 
+      href: "mailto:info@zimrights.zw?subject=About ZimRights " 
     }
   ];
 
