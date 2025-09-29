@@ -194,7 +194,7 @@ const Footer = () => {
         <div className="border-t border-white/20 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-white/60 text-sm mb-4 md:mb-0">
-              © 2024 ZimRights Navigator. Educational resource based on Zimbabwe's Constitution.
+              © 2025 ZimRights. Educational resource based on Zimbabwe's Constitution.
             </div>
             <div className="flex space-x-6 text-sm">
               <a href="#" className="text-white/60 hover:text-white transition-smooth">
